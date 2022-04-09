@@ -26,49 +26,24 @@ class App extends Component {
               "name": "name",
               "type": "text",
               "title": "Please enter your name:",
-              "placeHolder": "Jon Snow",
+              "placeHolder": "first name",
               "isRequired": true,
               "autoComplete": "name"
           }, {
             "name": "phoneNumber",
-            "type": "number",
-            "inputType": "number",
-            "title": "Your phone number:",
-            "placeHolder": "1234567890",
-            "isRequired": true,
-            "autoComplete": "number",
-            "validators": [
-                {
-                    "type": "number"
-                }
-            ]
+              "type": "text",
+              "title": "Please enter your phone number:",
+              "placeHolder": "9999999999",
+              "isRequired": true,
+              
         }, {
           "name": "zipcode",
-          "type": "number",
-          "inputType": "number",
-          "title": "Your zipcode:",
+          "type": "text",
+          "title": "Please enter your zipcode:",
           "placeHolder": "12345",
           "isRequired": true,
-          "autoComplete": "zipcode",
-          "validators": [
-              {
-                  "type": "number"
-              }
-          ]
-      },{
-              "name": "email",
-              "type": "text",
-              "inputType": "email",
-              "title": "Your e-mail:",
-              "placeHolder": "jon.snow@nightwatch.org",
-              "isRequired": true,
-              "autoComplete": "email",
-              "validators": [
-                  {
-                      "type": "email"
-                  }
-              ]
-          }
+          "autoComplete": "name"
+      }
       ]
   };
 
@@ -82,7 +57,7 @@ class App extends Component {
   ) : null
 
   var onSurveyCompletion = this.state.isCompleted ? (
-    <div>You have successfully signed up for DecisiveDining!</div>
+    <div>You have successfully signed up for DecisiveDining! You will be recieving a text shorlty :) </div>
   ) : null;
 
 
