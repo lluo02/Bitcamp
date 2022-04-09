@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'rest_framework',
+    'person',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -75,9 +79,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django_cockroachdb',
+        'NAME': 'bytecamp-2022-1181.defaultdb',
+        'USER': 'luke',
+        'PASSWORD': '6GGBGLs4DU7Yt5UlJ0jV2g',
+        'HOST': 'free-tier14.aws-us-east-1.cockroachlabs.cloud',
+        'PORT': '26257',
+        # If connecting with SSL, include the section below, replacing the
+        # file paths as appropriate.
+        'OPTIONS': {
+            'sslmode': 'require',
+            'sslrootcert': '/certs/ca.crt',
+            # Either sslcert and sslkey (below) or PASSWORD (above) is
+            # required.
+            'sslcert': '/certs/client.luke.crt',
+            'sslkey': '/certs/client.luke.key',
+        },
+    },
 }
 
 
@@ -121,3 +139,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000"
+]
