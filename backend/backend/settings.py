@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django_cockroachdb',
-        'NAME': 'bytecamp-2022-1181.defaultdb',
-        'USER': 'luke',
-        'PASSWORD': '6GGBGLs4DU7Yt5UlJ0jV2g',
-        'HOST': 'free-tier14.aws-us-east-1.cockroachlabs.cloud',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '26257',
         # If connecting with SSL, include the section below, replacing the
         # file paths as appropriate.
