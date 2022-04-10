@@ -17,19 +17,27 @@ def get_near_by_resturants(address_or_postalcode, radius, type_of_food):
 
     return final_result
 
-DISTANCE = 3000
-
+# this function return one resturant that fit the price range 
+# if no resturant is found, it returns error message
+# if no resturant fit the price range, it gives user another resturant
+# that is found in the area
 def choose_one(zipcode, type_of_food, price_level):
+    DISTANCE = 3000
     resturants = get_near_by_resturants(zipcode, DISTANCE, type_of_food)
+    if len(resturants) == 0:
+        return 'No resturant found, eat shit!'
+    
     possible_resturants = []
-
     for resturant in resturants:
         if resturant[2] == price_level:
             possible_resturants.append(resturant)
     
     if len(possible_resturants) == 0:
-        return "No resturant selected, please try again!"
+        result = "No resturants in your price range, but check this out!\n"
+        resturant = resturants[random.randint(0, len(resturants)-1)]
+        result = result + 'name: ' + resturant[0] + ' address: ' + resturant[1]  
     else:
-        return possible_resturants[random.randint(0, len(possible_resturants)-1)]
-
-print(choose_one('20740', 'mexican', 1))
+        resturant = possible_resturants[random.randint(0, len(possible_resturants)-1)]
+        result = 'name: ' + resturant[0] + ' address: ' + resturant[1]
+        
+    return result
