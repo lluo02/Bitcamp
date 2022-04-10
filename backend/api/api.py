@@ -3,6 +3,7 @@ sys.path.insert(0, '../')
 import api.api_interactions as ai
 import api.parsing_lst as par
 import random
+import json
 
 
 # this function returns the name of the resturant, address, and price level from 1-4, 
@@ -27,7 +28,7 @@ def choose_one(zipcode, type_of_food, price_level):
     DISTANCE = 3000
     resturants = get_near_by_resturants(zipcode, DISTANCE, type_of_food)
     if len(resturants) == 0:
-        return 'No resturant found, eat shit!'
+        return json.dumps('No resturant found, eat shit!')
     
     possible_resturants = []
     for resturant in resturants:
@@ -42,4 +43,4 @@ def choose_one(zipcode, type_of_food, price_level):
         resturant = possible_resturants[random.randint(0, len(possible_resturants)-1)]
         result = 'name: ' + resturant[0] + ' address: ' + resturant[1]
         
-    return result
+    return json.dumps(result)

@@ -7,16 +7,19 @@ from django.http import HttpResponse
 import sys
 sys.path.insert(0, '../')
 from api import api
-
+import json
 # Create your views here.
 
 def index (request):
     if request.method == 'POST':
-        r = api.choose_one(request.POST.get('zipcode'), 5000, 'type_of_food')
-        Person(name=request.POST.get('name'), zipcode=request.POST.get('zipcode'), phone=request.POST.get('phone')).save()
+        data = json.loads(request.body)
+        r = api.choose_one(data['zipcode'], data['type_of_food'], data['price_range'])
+        Person(name=data['name'], zipcode=data['zipcode'], phone=data['phone']).save()
+        print(r)
+        return HttpResponse(r)
     else: 
-        r = api.choose_one(request.GET.get('zipcode'), 5000, 'type_of_food')
-        Person(name=request.GET.get('name'), zipcode=request.GET.get('zipcode'), phone=request.GET.get('phone')).save()
-    return HttpResponse(r.text)
+        return HttpResponse('HTTP get')
+    
+    
 
     
