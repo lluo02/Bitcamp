@@ -16,3 +16,4 @@ def info_lst_to_address(info_lst):
             result = result + record['short_name']
     
     return result
+

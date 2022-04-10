@@ -47,9 +47,12 @@ def search_nearby(address_or_postalcode, radius, type):
     json_results = r.json()['results']
     return_lst = []
     for result in json_results:
-        temp = (result['name'], result['place_id'])
+        if 'price_level' in result:
+            temp = (result['name'], result['place_id'], result['price_level'])
+        else:
+            temp = (result['name'], result['place_id'], None)
+        
         return_lst.append(temp)
-    
     return return_lst
 
 # returns the list containing address info of the place_id 
