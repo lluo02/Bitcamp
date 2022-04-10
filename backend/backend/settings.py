@@ -94,8 +94,8 @@ DATABASES = {
             'sslrootcert': '/certs/ca.crt',
             # Either sslcert and sslkey (below) or PASSWORD (above) is
             # required.
-            'sslcert': '/certs/client.luke.crt',
-            'sslkey': '/certs/client.luke.key',
+            'sslcert': '',
+            'sslkey': '',
         },
     },
 }
