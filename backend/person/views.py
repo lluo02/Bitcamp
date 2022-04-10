@@ -1,7 +1,3 @@
-from django.shortcuts import render
-from rest_framework import viewsets
-from rest_framework.response import Response
-from .serializers import PersonSerializer
 from .models import Person
 from django.http import HttpResponse
 import sys
