@@ -20,7 +20,24 @@ class App extends Component {
 
   render() {
 
+    var defaultThemeColors = Survey
+    .StylesManager
+    .ThemeColors["default"];
+    defaultThemeColors["$main-color"] = "#e67e29";
+    defaultThemeColors["$main-hover-color"] = "#ffd119";
+    defaultThemeColors["$text-color"] = "#4a4a4a";
+    defaultThemeColors["$header-color"] = "#e67e29";
+
+    defaultThemeColors["$header-background-color"] = "#4a4a4a";
+    defaultThemeColors["$body-container-background-color"] = "#f8f8f8";
+
+Survey
+    .StylesManager
+    .applyTheme();
+
     var json = {
+      "title": "Decisive Dining",
+      "description": "Never have to decide where to dine again!",
       "elements": [
           {
               "name": "name",
@@ -43,11 +60,38 @@ class App extends Component {
           "placeHolder": "12345",
           "isRequired": true,
           "autoComplete": "name"
-      }
+        }, {
+          "type": "dropdown",
+          "name": "cuisine",
+          "title": "What type of food do you want?",
+          "isRequired": true,
+          "colCount": 0,
+          "hasNone": true,
+          "choices": [
+              "Chinese",
+              "Fast food",
+              "Italian",
+              "Korean",
+              "Mexican",
+              "Vegan",
+              "Vietnamese"
+          ]
+      }, {
+        "type": "radiogroup",
+        "name": "price",
+        "title": "What is your budget?",
+        "isRequired": true,
+        "colCount": 4,
+        "choices": [
+            "$",
+            "$$",
+            "$$$",
+            "$$$$"
+        ]
+    }
       ]
   };
 
-  
   var surveyRender = !this.state.isCompleted ? (
     <Survey.Survey 
       json={json}
@@ -57,7 +101,7 @@ class App extends Component {
   ) : null
 
   var onSurveyCompletion = this.state.isCompleted ? (
-    <div>You have successfully signed up for DecisiveDining! You will be recieving a text shorlty :) </div>
+    <div>You have successfully signed up for Decisive Dining! You will recieve a recommendation shorlty :) </div>
   ) : null;
 
 
