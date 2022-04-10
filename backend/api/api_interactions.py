@@ -1,7 +1,9 @@
+import sys
+sys.path.insert(0, '../')
 import requests
 from urllib.parse import urlencode
 
-with open('apikey.txt') as file:
+with open('api/apikey.txt') as file:
     key = file.readlines()
 file.close()
 # api key

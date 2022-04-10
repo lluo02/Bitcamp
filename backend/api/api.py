@@ -1,5 +1,7 @@
-import api_interactions as ai
-import parsing_lst as par
+import sys
+sys.path.insert(0, '../')
+import api.api_interactions as ai
+import api.parsing_lst as par
 import random
 
 

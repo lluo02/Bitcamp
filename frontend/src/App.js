@@ -40,26 +40,7 @@ Survey
       "title": "Decisive Dining",
       "description": "Never have to decide where to dine again!",
       "elements": [
-<<<<<<< HEAD
-        {
-          "name": "name",
-          "type": "text",
-          "title": "Please enter your name:",
-          "isRequired": true,
-        }, {
-          "name": "phoneNumber",
-          "type": "number",
-          "inputType": "number",
-          "title": "Your phone number:",
-          "placeHolder": "1234567890",
-          "isRequired": true,
-          "autoComplete": "number",
-          "validators": [
-            {
-              "type": "number"
-            }
-          ]
-=======
+
           {
               "name": "name",
               "type": "text",
@@ -73,36 +54,13 @@ Survey
               "title": "Please enter your phone number:",
               "placeHolder": "9999999999",
               "isRequired": true,
-              
->>>>>>> be6f2e394beafc60887fc6aa4b4be83e8db713c1
+            
         }, {
           "name": "zipcode",
           "type": "text",
           "title": "Please enter your zipcode:",
           "placeHolder": "12345",
           "isRequired": true,
-<<<<<<< HEAD
-          "autoComplete": "zipcode",
-          "validators": [
-            {
-              "type": "number"
-            }
-          ]
-        }, {
-          "name": "email",
-          "type": "text",
-          "inputType": "email",
-          "title": "Your e-mail:",
-          "placeHolder": "jon.snow@nightwatch.org",
-          "isRequired": true,
-          "autoComplete": "email",
-          "validators": [
-            {
-              "type": "email"
-            }
-          ]
-        }
-=======
           "autoComplete": "name"
         }, {
           "type": "dropdown",
@@ -133,20 +91,9 @@ Survey
             "$$$$"
         ]
     }
->>>>>>> be6f2e394beafc60887fc6aa4b4be83e8db713c1
       ]
     };
 
-<<<<<<< HEAD
-
-    var surveyRender = !this.state.isCompleted ? (
-      <Survey.Survey
-        json={json}
-        showCompletedPage={false}
-        onComplete={this.onCompleteComponent}
-      />
-    ) : null
-=======
   var surveyRender = !this.state.isCompleted ? (
     <Survey.Survey 
       json={json}
@@ -158,7 +105,6 @@ Survey
   var onSurveyCompletion = this.state.isCompleted ? (
     <div>You have successfully signed up for Decisive Dining! You will recieve a recommendation shorlty :) </div>
   ) : null;
->>>>>>> be6f2e394beafc60887fc6aa4b4be83e8db713c1
 
     var onSurveyCompletion = this.state.isCompleted ? (
       <div>You have successfully signed up for DecisiveDining!</div>

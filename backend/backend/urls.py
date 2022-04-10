@@ -19,9 +19,9 @@ from rest_framework import routers
 from person import views
 
 router = routers.DefaultRouter()
-router.register(r'people', views.PersonView, 'Person')
+#router.register('people', views.index, basename="person")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('api/', views.index, name="person"),
 ]
